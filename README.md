@@ -1,30 +1,24 @@
-# Spring Boot + Spring Security + OAuth2
+# Docmanager for intuit craft
 
-Example Spring Boot + Hibernate + Spring Security + OAuth2 project for demonstration purposes. 
+Spring Boot + Hibernate + Spring Security + OAuth2 project for demonstration purposes.
 
 ## Getting started
 ### Prerequisites:
 - Java 8
 - Maven
-- H2/PostgreSQL
+- H2
 
-It is possible to run application in one of two profiles:
-- h2
-- postgres
 
-depending on database engine chose for testing. 
 
 To enable cache statistics `dev` profile needs to be turned on.
 
-### Testing database schema
-![database-schema](src/main/docs/db_schema.png)
 
 ### Authentication
 
 ```
 curl -X POST \
   http://localhost:8080/oauth/token \
-  -H 'authorization: Basic c3ByaW5nLXNlY3VyaXR5LW9hdXRoMi1yZWFkLXdyaXRlLWNsaWVudDpzcHJpbmctc2VjdXJpdHktb2F1dGgyLXJlYWQtd3JpdGUtY2xpZW50LXBhc3N3b3JkMTIzNA==' \
+  -H 'authorization: Basic c3ByaW5nLXNlY3VyaXR5LW9hdXRoMi1yZWFkLXdyaXRlLWNsaWVudDpzcHJpbmctc2VjdXJpdHktb2F1dGgyLXJlYWQtd3JpdGUtY2xpZW50LXBhc3N3b3JkMTIzNA==' \ (this is a base 64 hash of the clientId:clientPassword)
   -F grant_type=password \
   -F username=admin \
   -F password=admin1234 \
@@ -35,6 +29,6 @@ curl -X POST \
 
 ```
 curl -X GET \
-  http://localhost:8080/secured/company/ \
+  http://localhost:8080/aws/folders/ \
   -H 'authorization: Bearer e6631caa-bcf9-433c-8e54-3511fa55816d'
 ```
